@@ -1,0 +1,14 @@
+export GC_ARGS="60 arg1 arg2 arg3"
+export GC_JOB_ID=1
+export GC_PARAM=1
+export JOB_RANDOM=5794057
+export SEED_0=5169169
+export SEED_1=7795014
+export SEED_2=843183
+export SEED_3=322612
+export SEED_4=7370183
+export SEED_5=6618010
+export SEED_6=9518004
+export SEED_7=1300793
+export SEED_8=265533
+export SEED_9=6395614

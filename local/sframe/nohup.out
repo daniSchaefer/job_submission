@@ -1,0 +1,211 @@
+Submitting job(s).........
+9 job(s) submitted to cluster 2020324.
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+Error in <TFile::TFile>: file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root does not exist
+Error in <TFileMerger::AddFile>: cannot open file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+hadd exiting due to error in /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+Error in <TFile::TFile>: file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root does not exist
+Error in <TFileMerger::AddFile>: cannot open file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+hadd exiting due to error in /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root': No such file or directory
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+tmp
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+wrote JDL file: ./JDL_job_calc
+program output: 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root 
+Submitting job(s).........
+9 job(s) submitted to cluster 2020327.
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+hadd Source file 2: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root
+hadd Source file 3: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root
+hadd Source file 4: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root
+hadd Source file 5: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root:/
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root:/SFrame
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+hadd Source file 2: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root
+hadd Source file 3: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root
+hadd Source file 4: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root:/
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root:/SFrame
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+tmp
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+wrote JDL file: ./JDL_job_calc
+program output: 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root 
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root
+Submitting job(s).........
+9 job(s) submitted to cluster 2020341.
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+Error in <TFile::TFile>: file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root does not exist
+Error in <TFileMerger::AddFile>: cannot open file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+hadd exiting due to error in /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+Error in <TFile::TFile>: file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root does not exist
+Error in <TFileMerger::AddFile>: cannot open file /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+hadd exiting due to error in /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root': No such file or directory
+rm: cannot remove `/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root': No such file or directory
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+tmp
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+wrote JDL file: ./JDL_job_calc
+program output: 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root 
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root
+Submitting job(s).........
+9 job(s) submitted to cluster 2020346.
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+hadd Source file 2: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root
+hadd Source file 3: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root
+hadd Source file 4: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root
+hadd Source file 5: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root:/
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root:/SFrame
+hadd Target file: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root
+hadd compression setting for all ouput: 1
+hadd Source file 1: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+hadd Source file 2: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root
+hadd Source file 3: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root
+hadd Source file 4: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root:/
+hadd Target path: /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root:/SFrame
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+tmp
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2000_13TeV-madgraph/ZprimeToWW_narrow_M-2000_13TeV-madgraph20170203_signal/170203_123521/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2000GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+Summer16/ZprimeToWW_narrow_M-2500_13TeV-madgraph/ZprimeToWW_narrow_M-2500_13TeV-madgraph20170203_signal/170203_123609/0000/
+ZprimeWW_13TeV_2500GeV
+wrote JDL file: ./JDL_job_calc
+program output: 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root 
+[['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root'], ['/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root', '/storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root']]
+hadd -f /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root 
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_1.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_2.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_3.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_4.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2000GeV.flatTuple_5.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_1.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_2.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_3.VV.root
+rm /storage/jbod/dschaefer/AnalysisOutput/80X/SignalMC/Summer16/ExoDiBosonAnalysis.ZprimeWW_13TeV_2500GeV.flatTuple_4.VV.root
+  File "batchsubmission.py", line 242
+    optparser.add_option("-i", "--interpolate", dest="interpolate",
+    ^
+IndentationError: unexpected indent

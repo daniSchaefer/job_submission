@@ -1,0 +1,43 @@
+000 (2024946.026.000) 06/14 16:24:11 Job submitted from host: <129.13.101.142:9618?addrs=129.13.101.142-9618&noUDP&sock=7538_ce86_4>
+...
+000 (2024947.026.000) 06/14 16:25:01 Job submitted from host: <129.13.101.142:9618?addrs=129.13.101.142-9618&noUDP&sock=7538_ce86_4>
+...
+001 (2024946.026.000) 06/14 16:26:04 Job executing on host: <129.13.102.214:9618?addrs=129.13.102.214-9618&noUDP&sock=852607_60b4_4>
+...
+001 (2024947.026.000) 06/14 16:26:05 Job executing on host: <129.13.102.210:9618?addrs=129.13.102.210-9618&noUDP&sock=2913_f7e0_4>
+...
+006 (2024946.026.000) 06/14 16:26:13 Image size of job updated: 2
+	1  -  MemoryUsage of job (MB)
+	1616  -  ResidentSetSize of job (KB)
+...
+006 (2024947.026.000) 06/14 16:26:14 Image size of job updated: 13
+	13  -  MemoryUsage of job (MB)
+	13808  -  ResidentSetSize of job (KB)
+...
+007 (2024947.026.000) 06/14 16:26:56 Shadow exception!
+	Error from slot1_2@ekplx70.ekp.kit.edu: Docker job has gone over memory limit of 128 Mb
+	0  -  Run Bytes Sent By Job
+	3566  -  Run Bytes Received By Job
+...
+012 (2024947.026.000) 06/14 16:26:56 Job was held.
+	Error from slot1_2@ekplx70.ekp.kit.edu: Docker job has gone over memory limit of 128 Mb
+	Code 34 Subcode 0
+...
+005 (2024946.026.000) 06/14 16:28:01 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	2917  -  Run Bytes Sent By Job
+	3566  -  Run Bytes Received By Job
+	2917  -  Total Bytes Sent By Job
+	3566  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :      194   750000    756580
+	   Memory (MB)          :        1      100       100
+...
+009 (2024947.026.000) 06/21 16:27:22 Job was aborted by the user.
+	The system macro SYSTEM_PERIODIC_REMOVE expression '( JobStatus == 5 && CurrentTime - EnteredCurrentStatus > 7 * ( 24 * ( 60 * 60 ) ) )' evaluated to TRUE
+...

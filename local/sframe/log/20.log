@@ -1,0 +1,47 @@
+000 (2024946.020.000) 06/14 16:24:11 Job submitted from host: <129.13.101.142:9618?addrs=129.13.101.142-9618&noUDP&sock=7538_ce86_4>
+...
+000 (2024947.020.000) 06/14 16:25:01 Job submitted from host: <129.13.101.142:9618?addrs=129.13.101.142-9618&noUDP&sock=7538_ce86_4>
+...
+001 (2024946.020.000) 06/14 16:26:04 Job executing on host: <129.13.102.188:9618?addrs=129.13.102.188-9618&noUDP&sock=2429_2017_4>
+...
+001 (2024947.020.000) 06/14 16:26:05 Job executing on host: <129.13.102.167:9618?addrs=129.13.102.167-9618&noUDP&sock=2982_4be9_4>
+...
+006 (2024946.020.000) 06/14 16:26:12 Image size of job updated: 17
+	17  -  MemoryUsage of job (MB)
+	17948  -  ResidentSetSize of job (KB)
+...
+006 (2024947.020.000) 06/14 16:26:14 Image size of job updated: 10
+	10  -  MemoryUsage of job (MB)
+	10804  -  ResidentSetSize of job (KB)
+...
+007 (2024947.020.000) 06/14 16:27:18 Shadow exception!
+	Error from slot1_2@ekplx27.ekp.kit.edu: Docker job has gone over memory limit of 128 Mb
+	0  -  Run Bytes Sent By Job
+	3566  -  Run Bytes Received By Job
+...
+012 (2024947.020.000) 06/14 16:27:18 Job was held.
+	Error from slot1_2@ekplx27.ekp.kit.edu: Docker job has gone over memory limit of 128 Mb
+	Code 34 Subcode 0
+...
+006 (2024946.020.000) 06/14 16:28:49 Image size of job updated: 128
+	128  -  MemoryUsage of job (MB)
+	131072  -  ResidentSetSize of job (KB)
+...
+005 (2024946.020.000) 06/14 16:28:50 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:01:05, Sys 0 00:00:00  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:01:05, Sys 0 00:00:00  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	3012  -  Run Bytes Sent By Job
+	3566  -  Run Bytes Received By Job
+	3012  -  Total Bytes Sent By Job
+	3566  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage  Request Allocated
+	   Cpus                 :                 1         1
+	   Disk (KB)            :      194   750000    979152
+	   Memory (MB)          :      128      100       100
+...
+009 (2024947.020.000) 06/21 16:27:22 Job was aborted by the user.
+	The system macro SYSTEM_PERIODIC_REMOVE expression '( JobStatus == 5 && CurrentTime - EnteredCurrentStatus > 7 * ( 24 * ( 60 * 60 ) ) )' evaluated to TRUE
+...

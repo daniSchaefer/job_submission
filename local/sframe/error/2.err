@@ -1,0 +1,11 @@
+WARNING: Your kernel does not support swap limit capabilities, memory limited without swap.
+**** Following environment variables are going to be unset.
+       UTM_XSD_DIR
+       CMS_OPENLOOPS_PREFIX
+       ROOT_TTREECACHE_PREFILL
+       TEXMFHOME
+       ROOT_TTREECACHE_SIZE
+cp: cannot stat `/usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode//datacards/CMS_jj_altZprimeWW_2200_13TeV_CMS_jj_WWHP.txt': No such file or directory
+cp: cannot stat `/usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode//workspaces/CMS_jj_altZprimeWW_2200_13TeV.root': No such file or directory
+Error when running the combination:
+	File /var/lib/condor/execute/dir_1842567/datacards/CMS_jj_altZprimeWW_2200_13TeV_CMS_jj_WWHP.txt does not exist

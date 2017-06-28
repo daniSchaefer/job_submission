@@ -1,0 +1,8 @@
+/var/lib/condor/execute/dir_737082
+arguments:
+CMS_jj_2200_ZprimeWW_13TeV_CMS_jj_ZZLP_asymptoticCLs_new.root /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/Limits/newSF/ 2200 CMS_jj_bkg_VValt_13TeV.root CMS_jj_altZprimeWW_2200_13TeV.root CMS_jj_altZprimeWW_2200_13TeV_CMS_jj_ZZLP.txt /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/ datacard: CMS_jj_altZprimeWW_2200_13TeV_CMS_jj_ZZLP.txt
+combine CMS_jj_altZprimeWW_2200_13TeV_CMS_jj_ZZLP.txt.txt -M Asymptotic -m 2200 -n test --rMax 100 --rMin 0.000001
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+### end of job ###

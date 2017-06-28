@@ -1,0 +1,14 @@
+universe = docker
+docker_image = mschnepf/slc6-condocker
+executable = ./job_calc.sh
+output = out/$(Process).out
+error = error/$(Process).err
+log = log/$(Process).log
+should_transfer_files = YES
+transfer_input_files = job_calc.sh
+transfer_output_files = ""
+getenv = True
+requirements =  ( (TARGET.ProvidesCPU) && (TARGET.ProvidesEkpResources) ) 
++RequestWalltime = 1800
+RequestMemory = 3000
+queue arguments from arguments.txt

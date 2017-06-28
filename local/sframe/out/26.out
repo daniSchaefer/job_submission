@@ -1,0 +1,46 @@
+/var/lib/condor/execute/dir_2478440
+arguments:
+CMS_jj_2100_ZprimeWW_13TeV_CMS_jj_WZLP_asymptoticCLs_new.root /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/Limits/newSF/ 2100 CMS_jj_bkg_VValt_13TeV.root CMS_jj_altZprimeWW_2100_13TeV.root CMS_jj_altZprimeWW_2100_13TeV_CMS_jj_WZLP.txt /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/ datacard: CMS_jj_altZprimeWW_2100_13TeV_CMS_jj_WZLP.txt
+combine CMS_jj_altZprimeWW_2100_13TeV_CMS_jj_WZLP.txt.txt -M Asymptotic -m 2100 -n test --rMax 100 --rMin 0.000001
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+[?1034hComputing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+  [WARNING] Found [CMS_bkg_fit_slope1_CMS_jj_WZLP_13TeV] at boundary. 
+Constraints of type RooGaussian: 2
+Constraints of type SimpleGaussianConstraint: 3
+Median for expected limits: 2.2168
+Sigma  for expected limits: 1.13104
+Constraints of type RooGaussian: 2
+Constraints of type SimpleGaussianConstraint: 3
+Constraints of type RooGaussian: 2
+Constraints of type SimpleGaussianConstraint: 3
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: -58.8436 (r = 0.582937)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -62.088 (r = 0.0265188)
+At r = 6.582937:	q_mu = 19.84136	q_A  = 24.03316	CLsb = 0.00000	CLb  = 0.67292	CLs  = 0.00001
+At r = 3.582937:	q_mu = 6.07800	q_A  = 8.97866	CLsb = 0.00684	CLb  = 0.70232	CLs  = 0.00974
+At r = 2.082937:	q_mu = 1.64774	q_A  = 3.40800	CLsb = 0.09963	CLb  = 0.71309	CLs  = 0.13972
+At r = 2.832937:	q_mu = 3.58785	q_A  = 5.95419	CLsb = 0.02910	CLb  = 0.70745	CLs  = 0.04114
+At r = 2.587182:	q_mu = 2.88839	q_A  = 5.06424	CLsb = 0.04461	CLb  = 0.70913	CLs  = 0.06291
+At r = 2.693468:	q_mu = 3.18255	q_A  = 5.44094	CLsb = 0.03721	CLb  = 0.70836	CLs  = 0.05254
+At r = 2.743925:	q_mu = 3.32673	q_A  = 5.62484	CLsb = 0.03408	CLb  = 0.70806	CLs  = 0.04813
+At r = 2.716281:	q_mu = 3.24672	q_A  = 5.52376	CLsb = 0.03578	CLb  = 0.70829	CLs  = 0.05052
+At r = 2.726539:	q_mu = 3.27619	q_A  = 5.56117	CLsb = 0.03515	CLb  = 0.70822	CLs  = 0.04963
+At r = 2.721037:	q_mu = 3.26037	q_A  = 5.54105	CLsb = 0.03549	CLb  = 0.70826	CLs  = 0.05010
+
+ -- Asymptotic -- 
+Observed Limit: r < 2.7210
+Expected  2.5%: r < 1.1560
+Expected 16.0%: r < 1.5662
+Expected 50.0%: r < 2.2168
+Expected 84.0%: r < 3.1976
+Expected 97.5%: r < 4.4848
+
+Done in 0.86 min (cpu), 0.87 min (real)
+### end of job ###
