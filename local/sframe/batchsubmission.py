@@ -2,14 +2,17 @@
 import sys
 import os
 import optparse
-sys.path.append('/usr/users/dschaefer/how-to_jdl_creator/jdl_creator/')
-sys.path.append('/usr/users/dschaefer/how-to_jdl_creator/jdl_creator/classes/')
+sys.path.append('/usr/users/mschnepf/jdl_creator/')
+sys.path.append('/usr/users/mschnepf/jdl_creator/classes/')
+#sys.path.append('/storage/jbod/dschaefer/how-to_jdl_creator/jdl_creator/')
+#sys.path.append('/storage/jbod/dschaefer/how-to_jdl_creator/jdl_creator/classes/')
 from classes.JDLCreator import JDLCreator # import the class to create and submit JDL files
 import numpy
 import tempfile
 import platform
 from copy import deepcopy
 import subprocess
+import ROOT as rt
 
 # check for python version
 if platform.python_version() < "2.5.1":
@@ -119,6 +122,7 @@ class XMLcreator:
         
     def makeXML(self,name,inputFile):
         a = inputFile.split('"')
+        print a
         l = a[1].split('/')
         infilename =''
         for s in a:
@@ -132,6 +136,7 @@ class XMLcreator:
         s1,s2 = l[-1].split('.')
         for i in range(0,len(l)-1):
             self.tmpJobDir +=l[i]+"/"
+        print name
         name1,name2,name3 = name.split('.')    
         self.xml = open(self.path2tmp+name,'w')
         self.xml.write('<?xml version="1.0" encoding="UTF-8"?>\n')
@@ -152,6 +157,7 @@ class XMLcreator:
         self.inputDir = self.storage+self.tmpJobDir
         self.typeName = name1
         self.version = s1
+        self.xml.close()
 
  
  
@@ -161,6 +167,7 @@ def writeJDL(arguments,mem,time,name):
     jobs.wall_time = time
     jobs.memory = mem 
     jobs.requirements = "(TARGET.ProvidesCPU) && (TARGET.ProvidesEkpResources)"
+    jobs.accounting_group = "cms.top"
     ##################################
     ## submit job to set up CMSSW 
     ##################################
@@ -175,7 +182,8 @@ def writeJDL(arguments,mem,time,name):
     jobs.SetExecutable(name)  # set job script
     #jobs.SetFolder('/usr/users/dschaefer/job_submission/local/sframe')  # set subfolder !!! you have to copy your job file into the folder
     jobs.SetArguments(arguments)              # write an JDL file and create folder f            # set arguments
-    jobs.WriteJDL()                           # write an JDL file and create folder for log files
+    jobs.WriteJDL() # write an JDL file and create folder for log files
+
 
         
 def calcSframeTrees(joboptions):
@@ -197,6 +205,10 @@ def calcSframeTrees(joboptions):
     for dset in parser.dataSets:
         filedset = open(parser.path2xml+dset[1][0],'r')
         for line in filedset:
+            if line.find("<!--")!=-1:
+                continue
+            if line =="\n":
+                continue
             counter+=1
             parser.makeXML(dset[0]+parser.postFix+"_"+str(counter)+".xml",line)
             #print parser.inputDir
@@ -215,8 +227,9 @@ def calcSframeTrees(joboptions):
     haddList.append(tmplist)
     #finalName.append(parser.outDir+parser.cycleName+"."+parser.typeName+parser.postFix+".root")
     Njobs = counter
+    time.sleep(10)
     writeJDL(arguments,3000,30*60,"job_calc.sh")
-    command = "condor_submit JDL_job_calc"
+    command = "condor_submit job_calc.jdl"
     process = subprocess.Popen(command,shell=True)
     
     waitForBatchJobs("job_calc")
@@ -240,7 +253,7 @@ def calcSframeTrees(joboptions):
             for h in l:
                 print "rm "+h
                 tmp+=h+ " "
-        #os.system("rm -f "+tmp)
+                #os.system("rm -f "+tmp)
             #print haddList
     
 
@@ -266,7 +279,7 @@ def waitForBatchJobs(nameJobFile):
             #print tmp
             add =0
             if tmp[-2]=="...":
-                add = -3
+                add = -2
             numberRunningJobs.append(tmp[-14+add])
             numberJobs.append(tmp[-2+add])
             numberIdleJobs.append(tmp[-8+add])
@@ -310,7 +323,7 @@ def doInterpolation(config):
             print "use masses" + reader.masses[i][j]
             arguments.append(reader.model[i]+" "+reader.masses[i][j]+" "+reader.opt[i]+" "+reader.inDir[i]+" "+reader.outDir[i]+" "+outfilename)
     writeJDL(arguments,30,10*60,"interpolate.sh")
-    command = "condor_submit JDL_interpolate"
+    command = "condor_submit interpolate.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("interpolate.sh")
     
@@ -320,7 +333,7 @@ def doInterpolation(config):
             #print m*100+int(reader.massmin[i])
             arguments.append(reader.model[i]+" "+str(m*100+int(reader.massmin[i]))+" "+reader.outDir[i])
     writeJDL(arguments,30,10*60,"interpolate2.sh")
-    command = "condor_submit JDL_interpolate2"
+    command = "condor_submit interpolate2.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("interpolate2.sh")
     samplemin=1
@@ -365,6 +378,7 @@ def makeDatacards(config):
             sample =2
         if "Bulk" in reader.model[i]:
             sample = 4
+            
         if "q" in reader.model[i] or "Q" in reader.model[i]:
             sample = 6
         if "RS" in reader.model[i]:
@@ -374,9 +388,9 @@ def makeDatacards(config):
         for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
             #print m*100+int(reader.massmin[i])
             arguments.append(str(m*100+int(reader.massmin[i]))+" "+str(sample)+" "+str(chan)+" "+reader.opt[i]+" "+reader.channel[i]+ " "+reader.inDir[i]+" "+reader.model[i]+" /usr/users/dschaefer/SFrame_setup/ExoDiBosonAnalysis/forSystematics/")
-    writeJDL(arguments,30,10*60,"datacards.sh")
+    writeJDL(arguments,150,10*60,"datacards.sh")
     print arguments
-    command = "condor_submit JDL_datacards"
+    command = "condor_submit datacards.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("datacards.sh")
     
@@ -393,21 +407,108 @@ def calcLimits(config):
     arguments=[]
     for i in range(0,len(reader.model)):
         for c in reader.channels[i]:
-            for p in reader.purities[i]:
+            #for p in reader.purities[i]:
                 for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                    mass = str(m*100+int(reader.massmin[i]))
                     if "new" in c:
                         print " datacards must be combined: start CombineDatacards.py"
-                        os.system("python CombineDatacards.py --batch --signal "+reader.model[i]+" --mass "+mass+" --path "+reader.inDir[i] )
-                    mass = str(m*100+int(reader.massmin[i]))
-                    datacard = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+p+".txt"
+                        if reader.opt[i] =="meep":
+                            os.system("python /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/Limits/CombineDatacards.py --batch --signal "+reader.model[i]+" --mass "+mass )
+                        else:
+                            os.system("python /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/Limits/CombineDatacards.py --batch --signal "+reader.opt[i]+reader.model[i]+" --mass "+mass )
+                    datacard = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
                     workspace = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV.root"
                     bkgworkspace = "CMS_jj_bkg_"+reader.channel[i]+reader.opt[i]+"_13TeV.root"
-                    outputname = "CMS_jj_"+mass+"_"+reader.opt[i]+reader.model[i]+"_13TeV_CMS_jj_"+c+p+"_asymptoticCLs_new.root"
+                    outputname = "CMS_jj_"+mass+"_"+reader.opt[i]+reader.model[i]+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
+                    if reader.opt[i] == "meep":
+                        datacard = "CMS_jj_"+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
+                        workspace = "CMS_jj_"+reader.model[i]+"_"+mass+"_13TeV.root"
+                        bkgworkspace = "CMS_jj_bkg_"+reader.channel[i]+"_13TeV.root"
+                        outputname = "CMS_jj_"+mass+"_"+reader.model[i]+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
+                    if reader.model[i] =="HVTtriplett":
+                        workspace = "CMS_jj_*_"+mass+"_13TeV.root"
                     arguments.append(reader.inDir[i]+" "+datacard+" "+workspace+" "+bkgworkspace+" "+mass+" "+reader.outDir[i]+" "+outputname)
-    writeJDL(arguments,30,10*60,"limits.sh")
-    command = "condor_submit JDL_limits"
+    writeJDL(arguments,500,10*60,"limits.sh")
+    command = "condor_submit limits.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("limits.sh")
+    
+    
+    
+def calcLimits3D(config):
+    reader = ConfigReader(config)
+    arguments=[]
+    for i in range(0,len(reader.model)):
+            for p in reader.purities[i]:
+                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                    mass = str(m*100+int(reader.massmin[i]))
+                    if reader.opt[i] == "3D":
+                        workspace = "workspace_JJ_"+p+"_13TeV.root"
+                        workspace = "workspace_test_HPHP_13TeV.root"
+                        outname="AsympLimit_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                    arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
+
+    writeJDL(arguments,500,30*60,"limits3D.sh")
+    command = "condor_submit limits3D.jdl"
+    process = subprocess.Popen(command,shell=True)
+    waitForBatchJobs("limits3D.sh")
+    
+    
+    
+
+def calcfullCLs(config):
+    reader = ConfigReader(config)
+    arguments=[]
+    print "attention: for this to work the asymptotic limits must already exist!!!"
+    for i in range(0,len(reader.model)):
+        for c in reader.channels[i]:
+            #for p in reader.purities[i]:
+                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                    mass = str(m*100+int(reader.massmin[i]))
+                    signal = reader.model[i]
+                    if reader.opt[i]!="meep":
+                        signal = reader.opt[i]+reader.model[i]
+                    datacard = "CMS_jj_"+signal+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
+                    workspace = "CMS_jj_"+signal+"_"+mass+"_13TeV.root"
+                    bkgworkspace = "CMS_jj_bkg_"+signal+"_13TeV.root"
+                    outputnameAsymptotic = "CMS_jj_"+mass+"_"+signal+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
+                    rf = rt.TFile(reader.outDir[i]+outputnameAsymptotic ,"READ")
+                    tree = rf.Get("limit")
+                    asymlimits={}
+                    for quantile in tree:
+                        asymlimits[int(tree.quantileExpected*100)] = tree.limit*10
+                    print reader.model[i]+" "+c+" "+str(mass)
+                    print asymlimits
+                    # make list of signal strenghts for toys: use n toys between 0.8 and 1.2 *asymp 2 sigma error band 
+                    toys=[]
+                    n = 50
+                    for frac in range(1,n):
+                        s = round(asymlimits[2]*0.8 +  (asymlimits[97]*1.2 - asymlimits[2]*0.8)/frac,4)
+                        toys.append(s)
+                    print toys
+        # 1 = directory of DijetCombineLimitCode
+        # 2 = name of datacard
+        # 3 = name of signal workspace
+        # 4 = name of background workspace
+        # 5 = mass
+        # 6 = output directory
+        # 7 = signal strenght for toy
+        # 8 = model
+                    for toy in toys:
+                        arguments.append(reader.inDir[i]+" "+datacard+" "+workspace+" "+bkgworkspace+" "+str(mass)+" "+reader.outDir[i]+" "+str(toy)+""+reader.model[i])
+        writeJDL(arguments,500,40*60,"toys.sh")
+        command = "condor_submit toys.jdl"
+        process = subprocess.Popen(command,shell=True)
+        waitForBatchJobs("toys.sh")
+        
+        #command00 = "cd "+reader.outDir[i]
+        #command0  = "hadd -f all_merged.root higgsCombine*"+str(mass)+"*.root"
+        #command1  = "combine datacard.txt -M HybridNew --freq --grid=all_merged.root --expectedFromGrid 0.5 --mass "+str(mass)+" >> "+reader.model[i]+"_"+str(mass)+".txt"
+        #os.system(command00)
+        #os.system(command0)
+        #os.system(command1)
+    
+    return 1
 
         
 if __name__=="__main__":
@@ -435,11 +536,24 @@ if __name__=="__main__":
                     action="store_true", default=False,
                     help="interpolate trees for limit setting [default = %default]")
     
+    optparser.add_option( "--datacardsPlusLimits", dest="dataPlusLim",
+                    action="store_true", default=False,
+                    help="calc datacards and limits [default = %default]")
+    
+    optparser.add_option( "--fullCLs", dest="fullCLs",
+                    action="store_true", default=False,
+                    help="calc limits using the full CLs method; attention number of toys defined in method fullCLs [default = %default]")
+    
+    optparser.add_option( "--limits3D", dest="limits3D",
+                    action="store_true", default=False,
+                    help="calc limits using the asymptotic CLs method for the new 3D limit setting procedure ")
+    
+    
     
     (options, args)=optparser.parse_args()
     jobOptions=options.jobOptions
     
-    
+    print options.jobOptions
     if options.sframe:
         calcSframeTrees(jobOptions)
     
@@ -458,10 +572,17 @@ if __name__=="__main__":
         makeDatacards("datacards.cfg")
         calcLimits("datacards.cfg")
         
+    if options.dataPlusLim:
+        makeDatacards("datacards.cfg")
+        calcLimits("datacards.cfg")
     
+    if options.fullCLs:
+        print "calculate full CLs limits "
+        calcfullCLs("datacards.cfg")
     
-    
-    
+    if options.limits3D:
+        print "calculate limits for new 3D framework"
+        calcLimits3D("datacards.cfg")
     
     
     
