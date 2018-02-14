@@ -2,8 +2,8 @@
 import sys
 import os
 import optparse
-sys.path.append('/usr/users/mschnepf/jdl_creator/')
-sys.path.append('/usr/users/mschnepf/jdl_creator/classes/')
+sys.path.append('/home/dschaefer/jdl_creator/')
+sys.path.append('/home/dschaefer/jdl_creator/classes/')
 #sys.path.append('/storage/jbod/dschaefer/how-to_jdl_creator/jdl_creator/')
 #sys.path.append('/storage/jbod/dschaefer/how-to_jdl_creator/jdl_creator/classes/')
 from classes.JDLCreator import JDLCreator # import the class to create and submit JDL files
@@ -163,7 +163,7 @@ class XMLcreator:
  
 def writeJDL(arguments,mem,time,name):
     #jobs = JDLCreator('condocker')  #run jobs on condocker cloude site
-    jobs = JDLCreator('condocker')
+    jobs = JDLCreator('condocker') # matthias schnepf told me i don't need this after all! (23.01.18)
     jobs.wall_time = time
     jobs.memory = mem 
     jobs.requirements = "(TARGET.ProvidesCPU) && (TARGET.ProvidesEkpResources)"
@@ -443,16 +443,109 @@ def calcLimits3D(config):
                 for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
                     mass = str(m*100+int(reader.massmin[i]))
                     if reader.opt[i] == "3D":
-                        workspace = "workspace_JJ_"+p+"_13TeV.root"
-                        workspace = "workspace_test_HPHP_13TeV.root"
-                        outname="AsympLimit_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        #workspace = "workspace_JJ_"+p+"_13TeV.root"
+                        #workspace = "workspace_test_HPHP_13TeV.root"
+                        #workspace = "workspace_pythia_nominal.root"
+                        #workspace = "workspace_pythia_tails3D.root"
+                        workspace = "workspace_pythia.root"
+                        #workspace = "workspace_tau21DDT.root"
+                        #outname="AsympLimit_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        outname="pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
                     arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
 
-    writeJDL(arguments,500,30*60,"limits3D.sh")
+    writeJDL(arguments,900,30*60,"limits3D.sh")
     command = "condor_submit limits3D.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("limits3D.sh")
-    
+ 
+ 
+def testSignalStrenght(config,toys):
+    reader = ConfigReader(config)
+    arguments=[]
+    for i in range(0,len(reader.model)):
+            for p in reader.purities[i]:
+                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                    expSig=[]
+                    f = rt.TFile("/home/dschaefer/Limits3DFit/pythia/pythia_tau21DDT_WprimeWZ_obs.root","READ") # attention root file here must be calculated from workspace below!!!
+                    mass = str(m*100+int(reader.massmin[i]))
+                    limit=f.Get("limit")
+                    lim=0
+                    for event in limit:
+                        #print event.mh
+                        if int(event.mh)!=int(mass):
+                            continue
+                        if event.quantileExpected>0.974 and event.quantileExpected<0.976:            
+                            lim=event.limit
+                            print lim
+                    for counter in range(0,10):
+                        expSig.append(round(0.0+counter*lim*2.5/10.,3))
+                    print expSig
+                    for sig in expSig:
+                        if reader.opt[i] == "3D":
+                            workspace = "workspace_pythia.root"
+                            outname="biasTest_r"+str(float(sig))+"_pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(toys)+" "+str(sig))
+
+    writeJDL(arguments,1500,30*60,"bias.sh")
+    command = "condor_submit bias.jdl"
+    process = subprocess.Popen(command,shell=True)
+    waitForBatchJobs("bias.sh")
+
+
+
+def fitInjectedSignal(config,signal,toys):
+    reader = ConfigReader(config)
+    arguments=[]
+    for i in range(0,len(reader.model)):
+            for p in reader.purities[i]:
+                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                    f = rt.TFile(signal,"READ")
+                    mass = str(m*100+int(reader.massmin[i]))
+                    g = f.Get(mass)
+                    sig = g.Eval(3)  # inject signal with 3 sigma significance!
+                    if reader.opt[i] == "3D":
+                            workspace = "workspace_pythia.root"
+                            outname="biasTest_MaxLikelihood_r"+str(int(sig))+"_pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                    arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(toys)+" "+str(sig))
+
+    writeJDL(arguments,1500,30*60,"bias2.sh")
+    command = "condor_submit bias2.jdl"
+    process = subprocess.Popen(command,shell=True)
+    waitForBatchJobs("bias2.sh")
+ 
+ 
+ 
+ 
+ 
+def GoodnessOfFit(config,toys):
+    reader = ConfigReader(config)
+    arguments=[]
+    for i in range(0,len(reader.model)):
+            for p in reader.purities[i]:
+                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                    mass = str(m*100+int(reader.massmin[i]))
+                    if reader.opt[i] == "3D":
+                        #workspace = "workspace_JJ_"+p+"_13TeV.root"
+                        #workspace = "workspace_test_HPHP_13TeV.root"
+                        workspace = "workspace_WprimeWZ_pythia_HPHP.root"
+                        #workspace = "workspace_pythia_nominal_dataherwig.root"
+                        for t in range(0,int(toys)):
+                            outname="GoodnessOfFit_pythia_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+"_toy_"+str(int(t))+".root"
+                            arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" 1")
+                        if toys == 0:
+                            outname="GoodnessOfFit_pythia_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                            arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
+                            
+
+    writeJDL(arguments,900,30*60,"GoodnessOfFit.sh")
+    command = "condor_submit GoodnessOfFit.jdl"
+    process = subprocess.Popen(command,shell=True)
+    waitForBatchJobs("GoodnessOfFit.sh")
+   
+
+
+
+
     
     
 
@@ -548,6 +641,31 @@ if __name__=="__main__":
                     action="store_true", default=False,
                     help="calc limits using the asymptotic CLs method for the new 3D limit setting procedure ")
     
+    optparser.add_option( "--GoodnessOfFit", dest="GoodnessOfFit",
+                    action="store_true", default=False,
+                    help="calc goodness of fit using the saturated algorithm of combine for the new 3D limit setting procedure ")
+    
+    optparser.add_option( "--biasTests", dest="biasTests",
+                    action="store_true", default=False,
+                    help="calc signal injections for the new 3D limit setting procedure ")
+    
+    optparser.add_option( "--scanSig", dest="scanSignificance",
+                    action="store_true", default=False,
+                    help="calc signal injections for the new 3D limit setting procedure ")
+    
+    
+    optparser.add_option( "--injectSig", dest="injectSignal",
+                    action="store_true", default=False,
+                    help="calc S+B fit for injected signal fot the new 3D limit setting procedure ")
+    
+    optparser.add_option( "--signal", dest="signal",
+                    action="store", default="",
+                    help="file containing signal strenght over significance -> use this to extract signal strenght value for --injectSignal option")
+    
+    
+    optparser.add_option("-t", "--toys", dest="toys",
+                    action="store", default=10,
+                    help="calculate toys [default = 10]")
     
     
     (options, args)=optparser.parse_args()
@@ -585,5 +703,14 @@ if __name__=="__main__":
         calcLimits3D("datacards.cfg")
     
     
+    if options.GoodnessOfFit:
+        print "calculate goodness of fit for new 3D framework"
+        GoodnessOfFit("datacards.cfg",options.toys)
+   
+    if options.scanSignificance:
+        testSignalStrenght("datacards.cfg",options.toys)
+        #waitForBatchJobs("bias.sh")
     
-    
+    #py batchsubmission.py --injectSig --toys 200 --signal /home/dschaefer/Limits3DFit/biasTest/scanSignalStrength.root
+    if options.injectSignal:
+        fitInjectedSignal("datacards.cfg",options.signal,options.toys)
