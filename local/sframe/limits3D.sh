@@ -14,7 +14,9 @@
 	
 	source $VO_CMS_SW_DIR/cmsset_default.sh
 	SCRAM_ARCH=slc6_amd64_gcc491
-	cd ${1}../../..
+	#cd ${1}../../..
+	#cd /portal/ekpbms2/home/dschaefer/CMSSW_8_1_0/src/
+	cd /portal/ekpbms2/home/dschaefer/CMSSW_7_4_7/src/
         eval `scramv1 runtime -sh`		# set variables for CMSSW
 	# print given arguments
 	echo "arguments:"
@@ -32,8 +34,9 @@
 	
 	
 	 
-        combine -m ${3} -M Asymptotic ${2} --run blind --verbose 2
-	mv  higgs*.root $1/Limits/$4 
+        combine -m ${3} -M Asymptotic ${2} -H ProfileLikelihood #--run blind  new version  AsymptoticLimits --verbose 3 #--rAbsAcc 0.00001 --rRelAcc 0.00001
+	#mv  higgs*.root $1/Limits/$4
+	mv higgs*.root /portal/ekpbms2/home/dschaefer/DiBoson3D/forBiasTests/kernels2017/limits/${4}
 
 	echo '### end of job ###'
 

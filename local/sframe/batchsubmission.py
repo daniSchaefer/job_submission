@@ -2,8 +2,8 @@
 import sys
 import os
 import optparse
-sys.path.append('/home/dschaefer/jdl_creator/')
-sys.path.append('/home/dschaefer/jdl_creator/classes/')
+sys.path.append('/portal/ekpbms2/home/dschaefer/jdl_creator/')
+sys.path.append('/portal/ekpbms2/home/dschaefer/jdl_creator/classes/')
 #sys.path.append('/storage/jbod/dschaefer/how-to_jdl_creator/jdl_creator/')
 #sys.path.append('/storage/jbod/dschaefer/how-to_jdl_creator/jdl_creator/classes/')
 from classes.JDLCreator import JDLCreator # import the class to create and submit JDL files
@@ -162,22 +162,14 @@ class XMLcreator:
  
  
 def writeJDL(arguments,mem,time,name):
-    #jobs = JDLCreator('condocker')  #run jobs on condocker cloude site
-    jobs = JDLCreator('condocker') # matthias schnepf told me i don't need this after all! (23.01.18)
+    #jobs = JDLCreator('condocker')  #run jobs on condocker cloude site # matthias schnepf told me i don't need this after all! (23.01.18) -> now it doesn't work anymore! (01.08.18)
+    jobs = JDLCreator() 
     jobs.wall_time = time
     jobs.memory = mem 
     jobs.requirements = "(TARGET.ProvidesCPU) && (TARGET.ProvidesEkpResources)"
     jobs.accounting_group = "cms.top"
     ##################################
-    ## submit job to set up CMSSW 
-    ##################################
-    #jobs.SetExecutable("job_setup.sh")  # set job script
-    #jobs.SetArguments(' ')              # set arguments
-    #jobs.SetFolder('../setup/')         # set subfolder !!! you have to copy your job file into the folder
-
-
-    ##################################
-    # submit job to run combine
+    # submit job to run something
     ##################################
     jobs.SetExecutable(name)  # set job script
     #jobs.SetFolder('/usr/users/dschaefer/job_submission/local/sframe')  # set subfolder !!! you have to copy your job file into the folder
@@ -416,26 +408,49 @@ def calcLimits(config):
                             os.system("python /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/Limits/CombineDatacards.py --batch --signal "+reader.model[i]+" --mass "+mass )
                         else:
                             os.system("python /usr/users/dschaefer/CMSSW_7_4_7/src/DijetCombineLimitCode/Limits/CombineDatacards.py --batch --signal "+reader.opt[i]+reader.model[i]+" --mass "+mass )
-                    datacard = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
-                    workspace = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV.root"
-                    bkgworkspace = "CMS_jj_bkg_"+reader.channel[i]+reader.opt[i]+"_13TeV.root"
-                    outputname = "CMS_jj_"+mass+"_"+reader.opt[i]+reader.model[i]+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
-                    if reader.opt[i] == "meep":
-                        datacard = "CMS_jj_"+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
-                        workspace = "CMS_jj_"+reader.model[i]+"_"+mass+"_13TeV.root"
-                        bkgworkspace = "CMS_jj_bkg_"+reader.channel[i]+"_13TeV.root"
-                        outputname = "CMS_jj_"+mass+"_"+reader.model[i]+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
-                    if reader.model[i] =="HVTtriplett":
-                        workspace = "CMS_jj_*_"+mass+"_13TeV.root"
-                    arguments.append(reader.inDir[i]+" "+datacard+" "+workspace+" "+bkgworkspace+" "+mass+" "+reader.outDir[i]+" "+outputname)
-    writeJDL(arguments,500,10*60,"limits.sh")
-    command = "condor_submit limits.jdl"
-    process = subprocess.Popen(command,shell=True)
-    waitForBatchJobs("limits.sh")
+                    #datacard = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
+                    #workspace = "CMS_jj_"+reader.opt[i]+reader.model[i]+"_"+mass+"_13TeV.root"
+                    #bkgworkspace = "CMS_jj_bkg_"+reader.channel[i]+reader.opt[i]+"_13TeV.root"
+                    #outputname = "CMS_jj_"+mass+"_"+reader.opt[i]+reader.model[i]+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
+                    #if reader.opt[i] == "meep":
+                        #datacard = "CMS_jj_"+reader.model[i]+"_"+mass+"_13TeV_CMS_jj_"+c+".txt"
+                        #workspace = "CMS_jj_"+reader.model[i]+"_"+mass+"_13TeV.root"
+                        #bkgworkspace = "CMS_jj_bkg_"+reader.channel[i]+"_13TeV.root"
+                        #outputname = "CMS_jj_"+mass+"_"+reader.model[i]+"_13TeV_CMS_jj_"+c+"_asymptoticCLs_new.root"
+                    #if reader.model[i] =="HVTtriplett":
+                        #workspace = "CMS_jj_*_"+mass+"_13TeV.root"
+                    #arguments.append(reader.inDir[i]+" "+datacard+" "+workspace+" "+bkgworkspace+" "+mass+" "+reader.outDir[i]+" "+outputname)
+    #writeJDL(arguments,500,10*60,"limits.sh")
+    #command = "condor_submit limits.jdl"
+    #process = subprocess.Popen(command,shell=True)
+    #waitForBatchJobs("limits.sh")
     
     
     
 def calcLimits3D(config):
+    reader = ConfigReader(config)
+    arguments=[]
+    print reader.step[0]
+    for i in range(0,len(reader.model)):
+            for p in reader.purities[i]:
+                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/float(reader.step[0]))):
+                    mass = str(m*float(reader.step[0])+int(reader.massmin[i]))
+                    print mass
+                    if reader.opt[i] == "3D":
+                        #workspace = "workspace_JJ_"+p+"_13TeV.root"
+                        workspace ="workspace_JJ_BulkGWW_13TeV.root"
+                        #outname="AsympLimit_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        outname="limits_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                    arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
+
+    writeJDL(arguments,2500,30*60,"limits3D.sh")
+    command = "condor_submit limits3D.jdl"
+    process = subprocess.Popen(command,shell=True)
+    waitForBatchJobs("limits3D.sh")
+    
+    
+    
+def calcPvaluesObs(config):
     reader = ConfigReader(config)
     arguments=[]
     for i in range(0,len(reader.model)):
@@ -443,20 +458,14 @@ def calcLimits3D(config):
                 for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
                     mass = str(m*100+int(reader.massmin[i]))
                     if reader.opt[i] == "3D":
-                        #workspace = "workspace_JJ_"+p+"_13TeV.root"
-                        #workspace = "workspace_test_HPHP_13TeV.root"
-                        #workspace = "workspace_pythia_nominal.root"
-                        #workspace = "workspace_pythia_tails3D.root"
                         workspace = "workspace_pythia.root"
-                        #workspace = "workspace_tau21DDT.root"
-                        #outname="AsympLimit_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
-                        outname="pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        outname="pvalue_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
                     arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
 
-    writeJDL(arguments,900,30*60,"limits3D.sh")
-    command = "condor_submit limits3D.jdl"
+    writeJDL(arguments,900,30*60,"pvalue.sh")
+    command = "condor_submit pvalue.jdl"
     process = subprocess.Popen(command,shell=True)
-    waitForBatchJobs("limits3D.sh")
+    waitForBatchJobs("pvalue.sh")    
  
  
 def testSignalStrenght(config,toys):
@@ -466,7 +475,8 @@ def testSignalStrenght(config,toys):
             for p in reader.purities[i]:
                 for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
                     expSig=[]
-                    f = rt.TFile("/home/dschaefer/Limits3DFit/pythia/pythia_tau21DDT_WprimeWZ_obs.root","READ") # attention root file here must be calculated from workspace below!!!
+                    #f = rt.TFile("/home/dschaefer/Limits3DFit/pythia/fullBkgModelHPLP_BulkGWW.root","READ") # attention root file here must be calculated from workspace below!!!
+                    f = rt.TFile("/home/dschaefer/Limits3DFit/pythia/limits_fullBkgModel_withTrigWeights2016_WprimeWZ_HPLP.root","READ") # attention root file here must be calculated from workspace below!!!
                     mass = str(m*100+int(reader.massmin[i]))
                     limit=f.Get("limit")
                     lim=0
@@ -478,15 +488,16 @@ def testSignalStrenght(config,toys):
                             lim=event.limit
                             print lim
                     for counter in range(0,10):
-                        expSig.append(round(0.0+counter*lim*2.5/10.,3))
+                        expSig.append(round(0+counter*lim*2.5/10.,3))
                     print expSig
                     for sig in expSig:
                         if reader.opt[i] == "3D":
-                            workspace = "workspace_pythia.root"
-                            outname="biasTest_r"+str(float(sig))+"_pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                            #workspace = "workspace_fullBkgModel_HPLP.root"
+                            workspace = "workspace_HPLP_2016Trig.root"
+                            outname="biasTest_r"+str(float(sig))+"_fullBkgModel_HPLP_2016Trig_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
                         arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(toys)+" "+str(sig))
 
-    writeJDL(arguments,1500,30*60,"bias.sh")
+    writeJDL(arguments,2500,30*60,"bias.sh")
     command = "condor_submit bias.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("bias.sh")
@@ -496,19 +507,34 @@ def testSignalStrenght(config,toys):
 def fitInjectedSignal(config,signal,toys):
     reader = ConfigReader(config)
     arguments=[]
-    for i in range(0,len(reader.model)):
-            for p in reader.purities[i]:
-                for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
-                    f = rt.TFile(signal,"READ")
-                    mass = str(m*100+int(reader.massmin[i]))
-                    g = f.Get(mass)
-                    sig = g.Eval(3)  # inject signal with 3 sigma significance!
-                    if reader.opt[i] == "3D":
-                            workspace = "workspace_pythia.root"
-                            outname="biasTest_MaxLikelihood_r"+str(int(sig))+"_pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
-                    arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(toys)+" "+str(sig))
+    if toys <=50:
+        for i in range(0,len(reader.model)):
+                for p in reader.purities[i]:
+                    for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                        f = rt.TFile(signal,"READ")
+                        mass = str(m*100+int(reader.massmin[i]))
+                        g = f.Get(mass)
+                        sig = g.Eval(3)  # inject signal with 3 sigma significance!
+                        if reader.opt[i] == "3D":
+                                workspace = "workspace_pythia.root"
+                                outname="biasTest_MaxLikelihood_r"+str(int(sig))+"_pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(toys)+" "+str(sig))
+    else:
+        for t in range(1,int(int(toys)/10)+1):
+            for i in range(0,len(reader.model)):
+                for p in reader.purities[i]:
+                    for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
+                        f = rt.TFile(signal,"READ")
+                        mass = str(m*100+int(reader.massmin[i]))
+                        g = f.Get(mass)
+                        sig = g.Eval(3)  # inject signal with 3 sigma significance!
+                        if reader.opt[i] == "3D":
+                                workspace = "workspace_pythia.root"
+                                outname="biasTest_MaxLikelihood_r"+str(int(sig))+"_pythia_tau21DDT_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+"_toy"+str(t)+".root"
+                        arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(10)+" "+str(sig))
 
-    writeJDL(arguments,1500,30*60,"bias2.sh")
+
+    writeJDL(arguments,2500,30*60,"bias2.sh")
     command = "condor_submit bias2.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("bias2.sh")
@@ -594,12 +620,142 @@ def calcfullCLs(config):
         process = subprocess.Popen(command,shell=True)
         waitForBatchJobs("toys.sh")
         
-        #command00 = "cd "+reader.outDir[i]
-        #command0  = "hadd -f all_merged.root higgsCombine*"+str(mass)+"*.root"
-        #command1  = "combine datacard.txt -M HybridNew --freq --grid=all_merged.root --expectedFromGrid 0.5 --mass "+str(mass)+" >> "+reader.model[i]+"_"+str(mass)+".txt"
-        #os.system(command00)
-        #os.system(command0)
-        #os.system(command1)
+        command00 = "cd "+reader.outDir[i]
+        command0  = "hadd -f all_merged.root higgsCombine*"+str(mass)+"*.root"
+        command1  = "combine datacard.txt -M HybridNew --freq --grid=all_merged.root --expectedFromGrid 0.5 --mass "+str(mass)+" >> "+reader.model[i]+"_"+str(mass)+".txt"
+        os.system(command00)
+        os.system(command0)
+        os.system(command1)
+    
+    return 1
+
+
+
+
+def calcfullCLs3D(config,nToys):
+    reader = ConfigReader(config)
+    arguments=[]
+    print "attention: for this to work the asymptotic limits must already exist!!!"
+    for i in range(0,len(reader.model)):
+        for p in reader.purity:
+            print p
+            for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/float(reader.step[0]))):
+                    mass = str(m*float(reader.step[0])+int(reader.massmin[i]))
+                    signal = reader.model[i]
+                    if reader.opt[i]!="meep":
+                        signal = reader.opt[i]+reader.model[i]
+                    workspace = "workspace_JJ_13TeV_2017.root"
+                    outputnameAsymptotic = "fullBkgModel_2017_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                    #outputnameCLS = "CMS_jj_"+mass+"_"+signal+"_13TeV_CMS_jj_CLs.root"
+                    rf = rt.TFile(reader.outDir[i]+outputnameAsymptotic ,"READ")
+                    tree = rf.Get("limit")
+                    asymlimits={}
+                    for quantile in tree:
+                        asymlimits[int(tree.quantileExpected*100)] = tree.limit
+                    print reader.model[i]+"  "+str(mass)
+                    print asymlimits
+                    # make list of signal strenghts for toys: use n toys between 0.8 and 1.2 *asymp 2 sigma error band 
+                    toys=[]
+                    outputnameCLs=[]
+                    n = 10
+                    numberofparalleltoys=25
+                    for frac in range(1,n):
+                        s = round(asymlimits[2]*0.8 +  (asymlimits[97]*1.2 - asymlimits[2]*0.8)/frac,4)
+                        for nt in range(1,numberofparalleltoys):
+                            toys.append(s)
+                            outputnameCLs.append("CMS_jj_"+mass+"_"+signal+"_13TeV_CMS_jj_CLs_toy"+str(nt)+"_signalStrength_"+str(s)+"_")
+                    print toys
+        # 1 = directory of DijetCombineLimitCode
+        # 2 = name of workspace
+        # 3 = output directory
+        # 4 = mass
+        # 5 = signal strenght for toy
+        # 6 = name output file
+        # 7 = number of toys
+                    c=0
+                    for toy in toys:
+                        arguments.append(reader.inDir[i]+" "+workspace+" "+reader.outDir[i]+" "+str(mass)+" "+str(toy)+" "+outputnameCLs[c]+" "+str(nToys))
+                        c+=1
+        writeJDL(arguments,2*500,4*60*60,"toys3D.sh")
+        command = "condor_submit toys3D.jdl"
+        process = subprocess.Popen(command,shell=True)
+        waitForBatchJobs("toys3D.sh")
+        
+        command00 = "cd "+reader.outDir[i]
+        command0  = "hadd -f all_merged.root higgsCombine*"+str(mass)+"*.root"
+        command1  = "combine ../workspace_JJ_HPHP_13TeV_2017.root -M HybridNew --LHCmode LHC-limits --readHybridResults --grid=grid_M"+str(mass)+".root --expectedFromGrid 0.5 -v3 -m "+str(mass)+" >> "+reader.model[i]+"_"+str(mass)+".txt"
+        os.system(command00)
+        os.system(command0)
+        os.system(command1)
+        
+        #combine ../workspace_JJ_HPHP_13TeV_2017.root -M HybridNew --LHCmode LHC-limits --readHybridResults --grid=test_M3600.root --expectedFromGrid 0.5 -v3 -m 3600
+    
+    return 1
+
+
+
+def calcfullCLs3D2(config,nToys,signalStrength):
+    reader = ConfigReader(config)
+    arguments=[]
+    print "attention: for this to work the asymptotic limits must already exist!!!"
+    for i in range(0,len(reader.model)):
+        for p in reader.purity:
+            print p
+            for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/float(reader.step[0]))):
+                    mass = str(m*float(reader.step[0])+int(reader.massmin[i]))
+                    signal = reader.model[i]
+                    if reader.opt[i]!="meep":
+                        signal = reader.opt[i]+reader.model[i]
+                    workspace = "workspace_JJ_13TeV_2017.root"
+                    outputnameAsymptotic = "fullBkgModel_2017_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                    #outputnameCLS = "CMS_jj_"+mass+"_"+signal+"_13TeV_CMS_jj_CLs.root"
+                    rf = rt.TFile(reader.outDir[i]+outputnameAsymptotic ,"READ")
+                    tree = rf.Get("limit")
+                    asymlimits={signalStrength}
+                    #for quantile in tree:
+                    #    asymlimits[int(tree.quantileExpected*100)] = tree.limit
+                    #print reader.model[i]+"  "+str(mass)
+                    #print asymlimits
+                    # make list of signal strenghts for toys: use n toys between 0.8 and 1.2 *asymp 2 sigma error band 
+                    toys=[]
+                    outputnameCLs=[]
+                    #n = 10
+                    numberofparalleltoys=25
+                    for s in asymlimits:
+                    #for frac in range(1,n):
+                        #s = round(asymlimits[2]*0.8 +  (asymlimits[97]*1.2 - asymlimits[2]*0.8)/frac,4)
+                        for nt in range(1,numberofparalleltoys):
+                            toys.append(s)
+                            outputnameCLs.append("CMS_jj_"+mass+"_"+signal+"_13TeV_CMS_jj_CLs_toy"+str(nt)+"_signalStrength_"+str(s)+"_")
+                    print toys
+        # 1 = directory of DijetCombineLimitCode
+        # 2 = name of workspace
+        # 3 = output directory
+        # 4 = mass
+        # 5 = signal strenght for toy
+        # 6 = name output file
+        # 7 = number of toys
+                    c=0
+                    for toy in toys:
+                        arguments.append(reader.inDir[i]+" "+workspace+" "+reader.outDir[i]+" "+str(mass)+" "+str(toy)+" "+outputnameCLs[c]+" "+str(nToys))
+                        c+=1
+        writeJDL(arguments,2*500,4*60*60,"toys3D.sh")
+        command = "condor_submit toys3D.jdl"
+        process = subprocess.Popen(command,shell=True)
+        waitForBatchJobs("toys3D.sh")
+        
+        command00 = "cd "+reader.outDir[i]
+        command0  = "hadd -f all_merged.root higgsCombine*"+str(mass)+"*.root"
+        command1  = "combine ../workspace_JJ_HPHP_13TeV_2017.root -M HybridNew --LHCmode LHC-limits --readHybridResults --grid=grid_M"+str(mass)+".root --expectedFromGrid 0.5 -v3 -m "+str(mass)+" >> "+reader.model[i]+"_"+str(mass)+".txt"
+        os.system(command00)
+        os.system(command0)
+        os.system(command1)
+        
+        #combine ../workspace_JJ_HPHP_13TeV_2017.root -M HybridNew --LHCmode LHC-limits --readHybridResults --grid=test_M3600.root --expectedFromGrid 0.5 -v3 -m 3600
+    
+    #use this to calculate the full CLs limit from grid later:
+    #combine ../workspace_JJ_HPHP_13TeV_2017.root -M HybridNew --LHCmode LHC-limits --readHybridResults --grid=gridmasspoint_M4400_2.root --expectedFromGrid 0.16 -m 4400 --plot=limit_scan0p16.png  --fullGrid
+    # the option --fullGrid makes the calculation take the full grid of calculated signal strength values, which i had to add in order for the calculation to make sense: otherwise only 3 to four r-values were used sometimes wron ones!? and the plot made with the --plot option showed the cls values all over the place! i.e this option helps the algorithm to fit a curve to determine r value
     
     return 1
 
@@ -637,9 +793,21 @@ if __name__=="__main__":
                     action="store_true", default=False,
                     help="calc limits using the full CLs method; attention number of toys defined in method fullCLs [default = %default]")
     
+    optparser.add_option( "--fullCLs3D", dest="fullCLs3D",
+                    action="store_true", default=False,
+                    help="calc limits using the full CLs method; attention number of toys defined in method fullCLs3D [default = %default]")
+    
+    optparser.add_option( "--fullCLs3D2", dest="fullCLs3D2",
+                    action="store_true", default=False,
+                    help="calc limits using the full CLs method; attention number of toys defined in method fullCLs3D2 [default = %default]")
+    
     optparser.add_option( "--limits3D", dest="limits3D",
                     action="store_true", default=False,
                     help="calc limits using the asymptotic CLs method for the new 3D limit setting procedure ")
+    
+    optparser.add_option( "--pvalue", dest="pvalue",
+                    action="store_true", default=False,
+                    help="calc (observed) pvalues for the new 3D limit setting procedure ")
     
     optparser.add_option( "--GoodnessOfFit", dest="GoodnessOfFit",
                     action="store_true", default=False,
@@ -666,6 +834,11 @@ if __name__=="__main__":
     optparser.add_option("-t", "--toys", dest="toys",
                     action="store", default=10,
                     help="calculate toys [default = 10]")
+    
+    
+    optparser.add_option("--signalStrength", dest="signalStrength",
+                    action="store", default=1.0,
+                    help="cal signal strength [default =1]")
     
     
     (options, args)=optparser.parse_args()
@@ -701,6 +874,10 @@ if __name__=="__main__":
     if options.limits3D:
         print "calculate limits for new 3D framework"
         calcLimits3D("datacards.cfg")
+        
+    if options.pvalue:
+        print "calculate pvalues for new 3D framework"
+        calcPvaluesObs("datacards.cfg")    
     
     
     if options.GoodnessOfFit:
@@ -714,3 +891,9 @@ if __name__=="__main__":
     #py batchsubmission.py --injectSig --toys 200 --signal /home/dschaefer/Limits3DFit/biasTest/scanSignalStrength.root
     if options.injectSignal:
         fitInjectedSignal("datacards.cfg",options.signal,options.toys)
+        
+    if options.fullCLs3D:
+        calcfullCLs3D("datacards.cfg",options.toys)
+        
+    if options.fullCLs3D2:    
+        calcfullCLs3D2("datacards.cfg",options.toys,options.signalStrength)
