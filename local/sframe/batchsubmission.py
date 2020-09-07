@@ -437,10 +437,13 @@ def calcLimits3D(config):
                     mass = str(m*float(reader.step[0])+int(reader.massmin[i]))
                     print mass
                     if reader.opt[i] == "3D":
-                        #workspace = "workspace_JJ_"+p+"_13TeV.root"
-                        workspace ="workspace_JJ_BulkGWW_13TeV.root"
+                        #workspace = "workspace_JJ_"+reader.model[i]+"_13TeV.root"
+                        workspace ="workspace_JJ_BulkGWW_13TeV_2016_pseudodatafullRunIII.root"
+                        #workspace = "workspace_JJ_"+reader.model[i]+"_13TeV_2017.root"
+                        #workspace = "workspace_JJ_"+reader.model[i]+"_13TeV_2016.root"
+                        #workspace = "workspace_JJ_BulkGWW_13TeV_2017_NOJER_PDFNLO_PUPPI.root"#"workspace_JJ_BulkGWW_13TeV.root"
                         #outname="AsympLimit_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
-                        outname="limits_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                        outname="FullRunIII_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
                     arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
 
     writeJDL(arguments,2500,30*60,"limits3D.sh")
@@ -476,7 +479,7 @@ def testSignalStrenght(config,toys):
                 for m in range(0,int((int(reader.massmax[i])-int(reader.massmin[i]))/100.)):
                     expSig=[]
                     #f = rt.TFile("/home/dschaefer/Limits3DFit/pythia/fullBkgModelHPLP_BulkGWW.root","READ") # attention root file here must be calculated from workspace below!!!
-                    f = rt.TFile("/home/dschaefer/Limits3DFit/pythia/limits_fullBkgModel_withTrigWeights2016_WprimeWZ_HPLP.root","READ") # attention root file here must be calculated from workspace below!!!
+                    f = rt.TFile("/portal/ekpbms2/home/dschaefer/DiBoson3D/limits/limits_ZprimeWW_13TeV_CMS_jj_combAll.root","READ") # attention root file here must be calculated from workspace below!!!
                     mass = str(m*100+int(reader.massmin[i]))
                     limit=f.Get("limit")
                     lim=0
@@ -493,8 +496,8 @@ def testSignalStrenght(config,toys):
                     for sig in expSig:
                         if reader.opt[i] == "3D":
                             #workspace = "workspace_fullBkgModel_HPLP.root"
-                            workspace = "workspace_HPLP_2016Trig.root"
-                            outname="biasTest_r"+str(float(sig))+"_fullBkgModel_HPLP_2016Trig_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                            workspace = ""
+                            outname="biasTest_r"+str(float(sig))+"_ZprimeWW_HPLP_2016_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
                         arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" "+str(toys)+" "+str(sig))
 
     writeJDL(arguments,2500,30*60,"bias.sh")
@@ -541,7 +544,7 @@ def fitInjectedSignal(config,signal,toys):
  
  
  
- 
+#combine -M GoodnessOfFit /portal/ekpbms2/home/dschaefer/DiBoson3D/workspace_JJ_BulkGWW_13TeV.root --algo=saturated -t 5000 -s -1 --toysFreq -m 2500 
  
 def GoodnessOfFit(config,toys):
     reader = ConfigReader(config)
@@ -553,17 +556,18 @@ def GoodnessOfFit(config,toys):
                     if reader.opt[i] == "3D":
                         #workspace = "workspace_JJ_"+p+"_13TeV.root"
                         #workspace = "workspace_test_HPHP_13TeV.root"
-                        workspace = "workspace_WprimeWZ_pythia_HPHP.root"
+                        #workspace = "workspace_LPLP_nominal.root"
+                        workspace = "workspace_JJ_BulkGWW_13TeV_2017_pseudodataVjets.root"
                         #workspace = "workspace_pythia_nominal_dataherwig.root"
                         for t in range(0,int(toys)):
-                            outname="GoodnessOfFit_pythia_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+"_toy_"+str(int(t))+".root"
+                            outname="GoodnessOfFit_VjetsOnly_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+"_toy_"+str(int(t))+".root"
                             arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname+" 1")
                         if toys == 0:
-                            outname="GoodnessOfFit_pythia_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
+                            outname="GoodnessOfFit_VjetsOnly_"+reader.model[i]+"_13TeV_CMS_jj_"+p+"_M"+mass+".root"
                             arguments.append(reader.inDir[i]+" "+workspace+" "+mass+" "+outname)
                             
 
-    writeJDL(arguments,900,30*60,"GoodnessOfFit.sh")
+    writeJDL(arguments,2500,30*60,"GoodnessOfFit.sh")
     command = "condor_submit GoodnessOfFit.jdl"
     process = subprocess.Popen(command,shell=True)
     waitForBatchJobs("GoodnessOfFit.sh")

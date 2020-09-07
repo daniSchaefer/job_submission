@@ -33,9 +33,13 @@
 	
 	
 	 
-        combine -m ${3} -M MaxLikelihoodFit ${2} --significance --expectSignal=${6} -t ${5} --rMax 100 --seed $RANDOM #--run blind --verbose 3 #--rAbsAcc 0.00001 --rRelAcc 0.00001
+        combine -m ${3} -M ProfileLikelihood ${2} --signif >> pValue_M${3}.txt #--run blind --verbose 3 #--rAbsAcc 0.00001 --rRelAcc 0.00001
 	#mv  higgs*.root $1/Limits/$4
-	mv higgs*.root /portal/ekpbms2/home/dschaefer/Limits3DFit/biasTest/${4}
-
+	mv higgs*.root /portal/ekpbms2/home/dschaefer/Limits3DFit/PValues/${4}
+        
+        mv pValue*.txt /portal/ekpbms2/home/dschaefer/Limits3DFit/PValues/
 	echo '### end of job ###'
+
+
+
 

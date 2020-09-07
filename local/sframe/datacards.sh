@@ -39,7 +39,8 @@
 	then
             if [ $4 = "meep" ]
             then
-               root -b -q "$6/X2VVFitter.cc($1,$2,$3)"
+               
+	       root -b -q "$6/X2VVFitter.cc($1,$2,$3)"
                python ${6}implement-JESJMRsystematics.py --batch  --mass $1 --signal $7  --path $8 --outpath $6  --purity HP --channel WW
                python ${6}implement-JESJMRsystematics.py --batch  --mass $1 --signal $7  --path $8 --outpath $6  --purity LP --channel WW
                python ${6}implement-JESJMRsystematics.py --batch  --mass $1 --signal $7  --path $8 --outpath $6  --purity HP --channel WZ

@@ -22,7 +22,7 @@
         echo $SFRAME_DIR
         echo $LD_LIBRARY_PATH
 	# copy needed files
-	echo "copy neede files"
+	echo "copy needed files"
 	cp $6/config/JobConfig.dtd .
 	cp $7$1 .
 	mkdir -p $3
@@ -44,7 +44,7 @@
 	# rename and move your outout files
 	echo "write output in file : "
 	#ls
-	mv ExoDiBosonAnalysis* $5
+	mv *nalysis* $5
 	#ls 
 ## end of script
         
